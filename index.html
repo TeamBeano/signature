@@ -46,9 +46,10 @@
       <p>Mobile: <input type="text" class='mobile' value="+44 (0) 777 1234 567"></p>
       <p>Email: <input type="text" class='email' value="michelle.milner@beano.com"></p>
     </form>
-
+    <hr>
     <div class="preview"></div>
     <p></p>
+    <hr>
     <textarea name="name" class='output' rows="40" cols="100"></textarea>
   </body>
 </html>
@@ -59,6 +60,7 @@
   	width: 100% !important;
   	-webkit-text-size-adjust: 100%;
   	-ms-text-size-adjust: 100%;
+    line-height: 1.1em;
   }
 
   img {
@@ -72,7 +74,7 @@
   }
 
   a{
-    color: black;
+    color: #6a6a6a;
     text-decoration: none;
   }
 
@@ -81,7 +83,7 @@
   	vertical-align:top;
   	font-family: Trebuchet MS1, Trebuchet MS, sans-serif;
   	font-size: 13px;
-  	color: #000;
+  	color: #6a6a6a;
   	text-align: left;
   }
 
@@ -92,10 +94,10 @@
   }
 
   table td[class="column1"] {
-    width: 209px;
+    width: 180px;
   }
   table td[class="column"] {
-    width: 143px;
+    width: 150px;
   }
   td[class="small-wham"]{
     display:none;
@@ -104,6 +106,7 @@
   table td[class="title"]{
     font-weight: bold;
     font-size: 18px;
+    color: #000;
   }
 
   table td[class="subtitle"]{
@@ -117,6 +120,28 @@
   }
   span[class="rwd-comma"]{
     display: none;
+  }
+
+  table[class="main"]{
+    border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 20px;
+  }
+
+  table[class='namerole']{
+    margin-bottom: 10px;
+  }
+
+  table[class='address']{
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+  }
+
+  table[class='details']{
+    width: 700px;
+  }
+
+  td[class='spacer']{
+    width: 50px;
   }
 
   @media only screen and (max-width: 651px){
@@ -139,13 +164,32 @@
     span[class="rwd-comma"]{
       display: inline;
     }
+
+    table[class='address']{
+      border: none;
+      border-top: 1px solid #d9d9d9;
+      border-bottom: 1px solid #d9d9d9;
+      margin: 0 0 10px;
+
+    }
+    td[class='address-details']{
+      padding: 15px 0;
+    }
+
+    td[class='spacer']{
+      display:none;
+    }
+
+    img[class='beano']{
+      margin: 15px 0;
+    }
   }
 </style>
 
-<table width="900" border="0" cellpadding="0" cellspacing="0">
+<table width="900" class='main' border="0" cellpadding="0" cellspacing="0">
   <tr>
     <td width="236" class="wham">
-      <table width="236" cellpadding="0" cellspacing="0" border="0" align="center" class="body_table">
+      <table width="236" cellpadding="0" cellspacing="0" border="0" class="body_table">
           <tbody>
               <tr>
                 <td>
@@ -156,7 +200,7 @@
       </table>
     <td>
     <td>
-      <table width="600" border="0" cellpadding="0" cellspacing="0">
+      <table width="700" class='namerole' border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td class="title">
             {{name}}
@@ -169,10 +213,10 @@
         </tr>
       </table>
 
-      <table border="0" cellpadding="0" cellspacing="0">
+      <table border="0" class='details' cellpadding="0" cellspacing="0">
         <tr>
           <td class='column1' >
-            <table width="236" cellpadding="0" cellspacing="0" border="0" align="center" class="body_table">
+            <table width="180" cellpadding="0" cellspacing="0" border="0" class="body_table">
                 <tbody>
                     <tr>
                         <td>
@@ -204,13 +248,20 @@
 
           </td>
           <td class='column'>
-            Beano Studios<span class='rwd-comma'>,</span><br class='rwd-break'>
-            185 Fleet Street<span class='rwd-comma'>,</span><br class='rwd-break'>
-            London<span class='rwd-comma'>,</span><br class='rwd-break'>
-            EC4A 2HS
+            <table class='address' width="200">
+              <tr>
+                <td class='spacer'></td>
+                <td class='address-details'>
+                  Beano Studios<span class='rwd-comma'>,</span><br class='rwd-break'>
+                  185 Fleet Street<span class='rwd-comma'>,</span><br class='rwd-break'>
+                  London<span class='rwd-comma'>,</span><br class='rwd-break'>
+                  EC4A 2HS
+                </td>
+              </tr>
+            </table>
           </td>
           <td class='column'>
-            <img src="beano.jpg" alt="" />
+            <img src="beano.jpg" class='beano' alt="" />
           </td>
         </tr>
       </table>
