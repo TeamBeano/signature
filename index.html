@@ -1,10 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src='bower_components/jquery/dist/jquery.js'></script>
+    <script type="text/javascript" src='bower_components/mustache.js/mustache.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        updatePreview()
+      })
+      $(document).on('change input', '.fields input', function() {
+        updatePreview()
+      })
+
+      function updatePreview() {
+        html = renderTemplate('#html_content', loadFormData())
+        $('.output').text(html)
+        $('.preview').html(html)
+      }
+
+      function loadFormData() {
+        return {
+          name: $('input.name').val(),
+          role: $('input.role').val(),
+          landline: $('input.landline').val(),
+          mobile: $('input.mobile').val(),
+          email: $('input.email').val()
+        }
+      }
+
+      function renderTemplate(template, data) {
+        var template = $(template).html();
+        Mustache.parse(template);
+        var rendered = Mustache.render(template, data);
+        return rendered
+      }
+
+    </script>
+  </head>
+  <body>
+    <form class="fields" action="#" method="get">
+      <p>Name: <input type="text" class='name' value="Michelle Milner-Eradhun"></p>
+      <p>Role: <input type="text" class='role' value="EA to Emma Scott and Beano Studios"></p>
+      <p>Landline: <input type="text" class='landline' value="+44 (0) 207 400 1091"></p>
+      <p>Mobile: <input type="text" class='mobile' value="+44 (0) 777 1234 567"></p>
+      <p>Email: <input type="text" class='email' value="michelle.milner@beano.com"></p>
+    </form>
+
+    <div class="preview"></div>
+    <p></p>
+    <textarea name="name" class='output' rows="40" cols="100"></textarea>
+  </body>
+</html>
+
+<script id="html_content" type="x-tmpl-mustache">
 <style media="screen">
   body {
   	width: 100% !important;
   	-webkit-text-size-adjust: 100%;
   	-ms-text-size-adjust: 100%;
-  	margin: 0;
-  	padding: 0;
   }
 
   img {
@@ -105,12 +159,12 @@
       <table width="600" border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td class="title">
-            Michelle Milner-Eradhun
+            {{name}}
           <td>
         </tr>
         <tr>
           <td class="subtitle">
-            EA to Emma Scott and Beano Studios
+            {{role}}
           </td>
         </tr>
       </table>
@@ -122,9 +176,9 @@
                 <tbody>
                     <tr>
                         <td>
-                          +44 (0) 207 400 1091<br>
-                          +44 (0) 777 1234 567<br>
-                          michelle.milner@beano.com<br>
+                          {{landline}}<br>
+                          {{mobile}}<br>
+                          {{email}}<br>
                           <a href='http://beano.com'>beano.com</a><br><br>
 
                           <table width='100%'>
@@ -170,3 +224,4 @@
     </td>
   </tr>
 </table>
+</script>
