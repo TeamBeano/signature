@@ -55,6 +55,7 @@
 </html>
 
 <script id="html_content" type="x-tmpl-mustache">
+
 <style media="screen">
   body {
   	width: 100% !important;
@@ -93,63 +94,16 @@
   	mso-table-rspace: 0pt;
   }
 
-  table td[class="column1"] {
-    width: 180px;
-  }
-  table td[class="column"] {
-    width: 150px;
-  }
-  td[class="small-wham"]{
-    display:none;
-  }
-
-  table td[class="title"]{
-    font-weight: bold;
-    font-size: 18px;
-    color: #000;
-  }
-
-  table td[class="subtitle"]{
-    color: #d84323;
-    font-size: 14px;
-  }
-
-  table td[class="footer"]{
-    color: #b7b7b7;
-    font-size: 11px;
-  }
-  span[class="rwd-comma"]{
-    display: none;
-  }
-
-  table[class="main"]{
-    border-bottom: 1px solid #d9d9d9;
-    margin-bottom: 20px;
-  }
-
-  table[class='namerole']{
-    margin-bottom: 10px;
-  }
-
-  table[class='address']{
-    border-left: 1px solid #d9d9d9;
-    border-right: 1px solid #d9d9d9;
-  }
-
   table[class='details']{
     width: 700px;
   }
 
-  td[class='spacer']{
-    width: 50px;
-  }
-
-  @media only screen and (max-width: 651px){
+  @media only screen and (max-width: 667px){
     td[class="wham"]{
       display:none;
     }
     td[class="small-wham"]{
-      display:table-cell;;
+      background-image: 'http://teambeano.github.io/signature/mobile-wham.jpg';
     }
     table{
       width: 100% !important;
@@ -166,10 +120,10 @@
     }
 
     table[class='address']{
-      border: none;
-      border-top: 1px solid #d9d9d9;
-      border-bottom: 1px solid #d9d9d9;
-      margin: 0 0 10px;
+      border: none !important;
+      border-top: 1px solid #d9d9d9 !important;
+      border-bottom: 1px solid #d9d9d9 !important;
+      margin: 0 0 10px  !important;
 
     }
     td[class='address-details']{
@@ -186,7 +140,7 @@
   }
 </style>
 
-<table width="900" class='main' border="0" cellpadding="0" cellspacing="0">
+<table width="900" class='main' border="0" cellpadding="0" cellspacing="0" style="border-bottom: 1px solid #d9d9d9;">
   <tr>
     <td width="236" class="wham">
       <table width="236" cellpadding="0" cellspacing="0" border="0" class="body_table">
@@ -200,29 +154,29 @@
       </table>
     <td>
     <td>
-      <table width="700" class='namerole' border="0" cellpadding="0" cellspacing="0">
+      <table width="700" class='namerole' style="margin-bottom: 10px;" border="0" cellpadding="0" cellspacing="0">
         <tr>
-          <td class="title">
-            {{name}}
+          <td class="title" style="font-weight: bold; font-size: 18px; color: #000;">
+            Michelle Milner-Eradhun
           <td>
         </tr>
         <tr>
-          <td class="subtitle">
-            {{role}}
+          <td class="subtitle" style="color: #d84323;font-size: 14px;">
+            EA to Emma Scott and Beano Studios
           </td>
         </tr>
       </table>
 
       <table border="0" class='details' cellpadding="0" cellspacing="0">
         <tr>
-          <td class='column1' >
+          <td class='column1' width="200">
             <table width="180" cellpadding="0" cellspacing="0" border="0" class="body_table">
                 <tbody>
                     <tr>
                         <td>
-                          {{landline}}<br>
-                          {{mobile}}<br>
-                          {{email}}<br>
+                          +44 (0) 207 400 1091<br>
+                          +44 (0) 777 1234 567<br>
+                          michelle.milner@beano.com<br>
                           <a href='http://beano.com'>beano.com</a><br><br>
 
                           <table width='100%'>
@@ -240,38 +194,31 @@
                           </table>
                         </td>
                         <td class='small-wham'>
-                          <img src="http://teambeano.github.io/signature/mobile-wham.jpg" alt="" />
+
                         </td>
                     </tr>
                 </tbody>
             </table>
 
           </td>
-          <td class='column'>
-            <table class='address' width="200">
+          <td class='column' width="230">
+            <table class='address' width="200" style="border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9;">
               <tr>
-                <td class='spacer'></td>
+                <td class='spacer' width="50"></td>
                 <td class='address-details'>
-                  Beano Studios<span class='rwd-comma'>,</span><br class='rwd-break'>
-                  185 Fleet Street<span class='rwd-comma'>,</span><br class='rwd-break'>
-                  London<span class='rwd-comma'>,</span><br class='rwd-break'>
+                  Beano Studios<span class='rwd-comma' style="display: none;">,</span><br class='rwd-break'>
+                  185 Fleet Street<span class='rwd-comma' style="display: none;">,</span><br class='rwd-break'>
+                  London<span class='rwd-comma' style="display: none;">,</span><br class='rwd-break'>
                   EC4A 2HS
                 </td>
               </tr>
             </table>
           </td>
-          <td class='column'>
+          <td class='column' width="150">
             <img src="http://teambeano.github.io/signature/beano.jpg" class='beano' alt="" />
           </td>
         </tr>
       </table>
-    </td>
-  </tr>
-</table>
-<table width='900'>
-  <tr>
-    <td class='footer'>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </td>
   </tr>
 </table>
