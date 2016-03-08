@@ -25,7 +25,11 @@
           role: $('input.role').val(),
           landline: $('input.landline').val(),
           mobile: $('input.mobile').val(),
-          email: $('input.email').val()
+          email: $('input.email').val(),
+          address1: $('input.address1').val(),
+          address2: $('input.address2').val(),
+          address3: $('input.address3').val(),
+          address4: $('input.address4').val(),
         }
       }
 
@@ -45,6 +49,10 @@
       <p>Landline: <input type="text" class='landline' value="+44 (0) 207 400 1091"></p>
       <p>Mobile: <input type="text" class='mobile' value="+44 (0) 777 1234 567"></p>
       <p>Email: <input type="text" class='email' value="michelle.milner@beano.com"></p>
+      <p>Address 1: <input type="text" class='address1' value="Beano Studios"></p>
+      <p>Address 2: <input type="text" class='address2' value="185 Fleet Street"></p>
+      <p>Address 3: <input type="text" class='address3' value="London"></p>
+      <p>Address 4: <input type="text" class='address4' value="EC4A 2HS"></p>
     </form>
     <hr>
     <div class="preview"></div>
@@ -214,10 +222,10 @@
               <tr>
                 <td class="spacer" width="30" style="border-collapse: collapse;vertical-align: top;font-family: Trebuchet MS1, Trebuchet MS, sans-serif;font-size: 13px;color: #6a6a6a;text-align: left;"></td>
                 <td class="address-details" style="border-collapse: collapse;vertical-align: top;font-family: Trebuchet MS1, Trebuchet MS, sans-serif;font-size: 13px;color: #6a6a6a;text-align: left;">
-                  Beano Studios<span class="rwd-comma" style="display: none;">,</span><br class="rwd-break">
-                  185 Fleet Street<span class="rwd-comma" style="display: none;">,</span><br class="rwd-break">
-                  London<span class="rwd-comma" style="display: none;">,</span><br class="rwd-break">
-                  EC4A 2HS
+                  {{address1}}<span class="rwd-comma" style="display: none;">,</span><br class="rwd-break">
+                  {{address2}}<span class="rwd-comma" style="display: none;">,</span><br class="rwd-break">
+                  {{address3}}<span class="rwd-comma" style="display: none;">,</span><br class="rwd-break">
+                  {{address4}}
                 </td>
               </tr>
             </table>
