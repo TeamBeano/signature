@@ -15,6 +15,7 @@
 
       function updatePreview() {
         html = renderTemplate('#html_content', loadFormData())
+        html = html.trim().replace(/\s{2,}/g, ' ')
         $('.output').text(html)
         $('.preview').html(html)
       }
