@@ -15,7 +15,7 @@
 
       function updatePreview() {
         html = renderTemplate('#html_content', loadFormData())
-        html = html.trim().replace(/\s{2,}/g, ' ')
+        html = html.trim().replace(/\s{2,}/g, ' ').replace(/>\s+?</, "><")
         $('.output').text(html)
         $('.preview').html(html)
       }
@@ -64,122 +64,48 @@
 </html>
 
 <script id="html_content" type="x-tmpl-mustache">
-<style media="screen">
-  body {
-      width: 100% !important;
-      -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-    line-height: 1.1em;
-  }
-
-  img {
-      outline: none;
-      text-decoration: none;
-      border: none;
-      -ms-interpolation-mode: bicubic;
-      max-width:100%;
-      height:auto;
-      display: block;
-  }
-
-  a{
-    color: #6a6a6a;
-    text-decoration: none;
-  }
-
-  table td {
-    vertical-align:top;
-    font-family: Trebuchet MS1, Trebuchet MS, sans-serif;
-    font-size: 13px;
-    color: #6a6a6a;
-    text-align: left;
-  }
-
-  table[class="main"]{
-   min-width: 300px;
-   max-width: 800px;
-  }
-  td[class="small-wham"]{
-    width: 178px;
-    height: 164px;
-  }
-  table{
-    width: 100%;
-  }
-
-  td[class="body_table"]{
-    display: block;
-    width: 100%;
-  }
-
-  table[class='address']{
-    display: block;
-    width: 100%;
-    border: none;
-    border-top: 1px solid #d9d9d9;
-    border-bottom: 1px solid #d9d9d9;
-    margin: 0 0 10px ;
-  }
-  td[class='address-details']{
-    padding: 15px 0;
-  }
-  img[class='beano']{
-    margin: 15px 0;
-  }
-  table[class='namerole']{
-    width: 100%;
-    display: block;
-  }
-</style>
-
-<table class="main" border="0" cellpadding="0" cellspacing="0" style="border-bottom: 1px solid #d9d9d9;min-width: 600px;">
+<table border="0" cellpadding="0" cellspacing="0" style="border-bottom-color: #d9d9d9; border-bottom-style: solid; border-bottom-width: 1px; max-width: 800px; min-width: 300px; width: 100%">
   <tr>
-    <td style="vertical-align: top;font-family: Trebuchet MS1, Trebuchet MS, sans-serif;font-size: 13px;color: #6a6a6a;text-align: left;">
-      <table class="namerole" style="margin-bottom: 10px;" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td class="title" style="font-weight: bold;font-size: 18px;color: #000;vertical-align: top;font-family: Trebuchet MS1, Trebuchet MS, sans-serif;text-align: left;">
-            {{name}}
-          </td><td style="vertical-align: top;font-family: Trebuchet MS1, Trebuchet MS, sans-serif;font-size: 13px;color: #6a6a6a;text-align: left;">
-        </td></tr>
-        <tr>
-          <td class="subtitle" style="color: #d84323;font-size: 14px;vertical-align: top;font-family: Trebuchet MS1, Trebuchet MS, sans-serif;text-align: left;">
-            {{role}}
-          </td>
-        </tr>
-      </table>
+    <td style="color: #6a6a6a; font-family: Trebuchet MS1, Trebuchet MS, sans-serif; font-size: 13px; text-align: left; vertical-align: top" align="left" valign="top">
 
-      <table align="left" width="600" border="0" class="details" cellpadding="0" cellspacing="0" style="">
+      <table align="left" width="600" border="0" cellpadding="0" cellspacing="0" style="width: 100%">
         <tr>
-          <td style="vertical-align: top;font-family: Trebuchet MS1, Trebuchet MS, sans-serif;font-size: 13px;color: #6a6a6a;text-align: left;">
-            <table align="left" width="180" cellpadding="0" cellspacing="0" border="0" class="body_table" style="">
+          <td style="color: #6a6a6a; font-family: Trebuchet MS1, Trebuchet MS, sans-serif; font-size: 13px; text-align: left; vertical-align: top" align="left" valign="top">
+            <table align="left" width="180" cellpadding="0" cellspacing="0" border="0" style="width: 100%">
                 <tbody>
                     <tr>
-                        <td style="vertical-align: top;font-family: Trebuchet MS1, Trebuchet MS, sans-serif;font-size: 13px;color: #6a6a6a;text-align: left;">
+                        <td style="color: #6a6a6a; font-family: Trebuchet MS1, Trebuchet MS, sans-serif; font-size: 13px; text-align: left; vertical-align: top" align="left" valign="top">
+                          <span style="color: #000; font-family: Trebuchet MS1, Trebuchet MS, sans-serif; font-size: 18px; font-weight: bold; text-align: left; vertical-align: top" align="left" valign="top">
+                            {{name}}
+                          </span><br>
+                          <span style="color: #d84323; font-family: Trebuchet MS1, Trebuchet MS, sans-serif; font-size: 14px; text-align: left; vertical-align: top" align="left" valign="top">
+                            {{role}}
+                          </span><br>
                           {{landline}}<br>
                           {{mobile}}<br>
-                          <a href="mailto:{{email}}" target="_blank" style="color: #6a6a6a;text-decoration: none;">{{email}}</a><br>
-                          <a href="http://beano.com" style="color: #6a6a6a;text-decoration: none;">beano.com</a><br><br>
+                          <a href="mailto:%7B%7Bemail%7D%7D" target="_blank" style="color: #6a6a6a; text-decoration: none">{{email}}</a><br>
+                          <a href="http://beano.com" style="color: #6a6a6a; text-decoration: none">beano.com</a><br><br>
 
-                          <table width="60" style="">
+                          <table width="60" style="width: 100%">
                             <tr>
-                              <td class="social" style="vertical-align: top;font-family: Trebuchet MS1, Trebuchet MS, sans-serif;font-size: 13px;color: #6a6a6a;text-align: left;">
-                                <a href="https://www.facebook.com/TheBeanoComic/" style="display:block; float:left; text-decoration: none;"><img src="http://teambeano.github.io/signature/facebook.jpg" style="outline: none;text-decoration: none;border: none;-ms-interpolation-mode: bicubic;max-width: 100%;height: auto;display: block;"></a>
-                                <a href="https://twitter.com/BeanoComic" style="display:block; float:left;text-decoration: none;"><img src="http://teambeano.github.io/signature/twitter.jpg" style="outline: none;text-decoration: none;border: none;-ms-interpolation-mode: bicubic;max-width: 100%;height: auto;display: block;"></a>
-                                <a href="https://www.instagram.com/thebeanocomic/" style="display:block; float:left;text-decoration: none;"><img src="http://teambeano.github.io/signature/instagram.jpg" style="outline: none;text-decoration: none;border: none;-ms-interpolation-mode: bicubic;max-width: 100%;height: auto;display: block;"></a>
+                              <td align="left" valign="top">
+                                <a href="https://www.facebook.com/TheBeanoComic/" style="display: block; float: left; text-decoration: none"><img src="http://teambeano.github.io/signature/facebook.jpg" style="-ms-interpolation-mode: bicubic; border: none; display: block; height: auto; max-width: 100%; outline: none; text-decoration: none"></a>
+                                <a href="https://twitter.com/BeanoComic" style="display: block; float: left; text-decoration: none"><img src="http://teambeano.github.io/signature/twitter.jpg" style="-ms-interpolation-mode: bicubic; border: none; display: block; height: auto; max-width: 100%; outline: none; text-decoration: none"></a>
+                                <a href="https://www.instagram.com/thebeanocomic/" style="display: block; float: left; text-decoration: none"><img src="http://teambeano.github.io/signature/instagram.jpg" style="-ms-interpolation-mode: bicubic; border: none; display: block; height: auto; max-width: 100%; outline: none; text-decoration: none"></a>
                               </td>
                             </tr>
                           </table>
                         </td>
-                        <td class="small-wham" style="">
-                          <img src="http://teambeano.github.io/signature/wham.gif" alt="" style="outline: none;text-decoration: none;border: none;-ms-interpolation-mode: bicubic;max-width: 100%;height: auto;display: block;">
+                        <td style="margin-top:-20px;width: 178px" align="left" valign="top">
+                          <img src="http://teambeano.github.io/signature/wham.gif">
                         </td>
                     </tr>
                 </tbody>
             </table>
 
-            <table align="left" class="address" width="180">
+            <table align="left" width="180" style="border-bottom-color: #d9d9d9; border-bottom-width: 1px; border-style: solid none; border-top-color: #d9d9d9; border-top-width: 1px; display: block; margin: 0 0 10px; width: 100%">
               <tr>
-                <td class="address-details" style="vertical-align: top;font-family: Trebuchet MS1, Trebuchet MS, sans-serif;font-size: 13px;color: #6a6a6a;text-align: left;">
+                <td style="color: #6a6a6a; font-family: Trebuchet MS1, Trebuchet MS, sans-serif; font-size: 13px; padding: 15px 0; text-align: left;" align="left" valign="top">
                   {{address1}},
                   {{address2}},
                   {{address3}},
@@ -187,14 +113,15 @@
                 </td>
               </tr>
             </table>
-            <table align="left" width="150" style="">
-          <tr>
-              <td class="column" width="150" style="">
-                <a href="http://beano.com"><img src="http://teambeano.github.io/signature/beano-logo.gif" class="beano" alt="" style="outline: none;text-decoration: none;border: none;-ms-interpolation-mode: bicubic;max-width: 100%;height: auto;display: block;"></a>
+            <table align="left" width="150" style="width: 100%">
+              <tr>
+              <td width="150" align="left" valign="top">
+                <a href="http://beano.com" style="text-decoration: none"><img src="http://teambeano.github.io/signature/beano-logo.gif" style="-ms-interpolation-mode: bicubic; border: none; display: block; height: auto; margin: 15px 0; max-width: 100%; outline: none; text-decoration: none"></a>
               </td>
           </tr>
         </table>
-        </td></tr>
+        </td>
+</tr>
       </table>
     </td>
   </tr>
